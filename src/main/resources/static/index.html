@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Clinica Odontológica</h1>
+
+    <!-- Formulario 1: Formulario de Contacto -->
+    <form id="contactForm">
+        <h2>Registrar un Odontologo</h2>
+        <label for="matricula">Matricula: </label>
+        <input type="text" id="matricula" name="matricula" required>
+        <label for="name">Nombre: </label>
+        <input type="text" id="name" name="name" required>
+        <label for="apellido">Apellido: </label>
+        <input type="text" id="apellido" name="apellido" required>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <br>
+    <br>
+
+    <div id="MostrarDatos">
+        <h3>Mostrar Datos del Odontólogo</h3>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <button class="BotonOdontologos">Listar los Odontólogos</button>
+
+
+    <script src="/clinica.js">
+    </script>
+
+</body>
+</html>
