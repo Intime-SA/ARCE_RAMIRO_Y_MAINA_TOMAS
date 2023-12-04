@@ -112,6 +112,29 @@ public class TurnoService implements ITurnoService {
 
     @Override
     public TurnoSalidaDto actualizarTurno(TurnoModificacionEntradaDto turnoEntradaDto) {
+<<<<<<< HEAD
+        TurnoSalidaDto turnoSalidaDto = null;
+        Turno turnoEncontrado = turnoRepository.findById(turnoEntradaDto.getId()).orElse(null);
+
+        if (turnoEncontrado != null) {
+            // Actualizar las propiedades del turnoEncontrado con las del turnoEntradaDto
+            modelMapper.map(turnoEntradaDto, turnoEncontrado);
+
+            // Guardar el turno actualizado
+            turnoRepository.save(turnoEncontrado);
+
+            // Mapear el turno actualizado al DTO de salida
+            turnoSalidaDto = modelMapper.map(turnoEncontrado, TurnoSalidaDto.class);
+            LOGGER.info("Turno Actualizado ID: " + turnoEncontrado.getId());
+
+            return turnoSalidaDto;
+        } else {
+            return turnoSalidaDto;
+        }
+    }
+
+
+=======
 
         TurnoSalidaDto turnoSalidaDto = null;
         Turno turno = modelMapper.map(turnoEntradaDto, Turno.class);
@@ -126,6 +149,7 @@ public class TurnoService implements ITurnoService {
         else return turnoSalidaDto;
     }
 
+>>>>>>> 92093fc39a9bbcb867172bc39066b8c8b613ec65
     @Override
     public TurnoSalidaDto buscarTurnoPorId(Long id) {
         Turno turnoBuscado = turnoRepository.findById(id).orElse(null);
@@ -134,6 +158,30 @@ public class TurnoService implements ITurnoService {
     }
 
     private void configureMapping() {
+<<<<<<< HEAD
+        // Mapeo de TurnoEntradaDto a Turno
+        modelMapper.typeMap(TurnoEntradaDto.class, Turno.class)
+                .addMappings(mapper -> {
+                    mapper.map(TurnoEntradaDto::getPaciente, Turno::setPaciente);
+                    mapper.map(TurnoEntradaDto::getOdontologo, Turno::setOdontologo);
+                });
+
+        // Mapeo de Turno a TurnoSalidaDto
+        modelMapper.typeMap(Turno.class, TurnoSalidaDto.class)
+                .addMappings(mapper -> {
+                    mapper.map(Turno::getPaciente, TurnoSalidaDto::setPaciente);
+                    mapper.map(Turno::getOdontologo, TurnoSalidaDto::setOdontologo);
+                });
+
+        // Mapeo de TurnoModificacionEntradaDto a Turno
+        modelMapper.typeMap(TurnoModificacionEntradaDto.class, Turno.class)
+                .addMappings(mapper -> {
+                    mapper.map(TurnoModificacionEntradaDto::getOdontologoModificacionEntradaDto, Turno::setOdontologo);
+                    mapper.map(TurnoModificacionEntradaDto::getPacienteModificacionEntradaDto, Turno::setPaciente);
+                });
+
+        // Mapeo de Odontologo a OdontologoSalidaDto
+=======
         modelMapper.typeMap(TurnoEntradaDto.class, Turno.class)
                 .addMappings(modelMapper -> modelMapper.map(TurnoEntradaDto::getPaciente, Turno::setPaciente));
 
@@ -150,9 +198,14 @@ public class TurnoService implements ITurnoService {
         modelMapper.typeMap(TurnoModificacionEntradaDto.class, Turno.class)
                 .addMappings(modelMapper -> modelMapper.map(TurnoModificacionEntradaDto::getOdontologoEntradaDto, Turno::setOdontologo));
 
+>>>>>>> 92093fc39a9bbcb867172bc39066b8c8b613ec65
         modelMapper.typeMap(Odontologo.class, OdontologoSalidaDto.class)
                 .addMappings(mapper -> mapper.map(Odontologo::getId, OdontologoSalidaDto::setId));
     }
 
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 92093fc39a9bbcb867172bc39066b8c8b613ec65
 }

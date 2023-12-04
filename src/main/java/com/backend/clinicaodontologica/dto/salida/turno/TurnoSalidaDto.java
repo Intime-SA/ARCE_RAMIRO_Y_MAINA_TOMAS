@@ -14,7 +14,11 @@ import java.time.LocalDateTime;
 public class TurnoSalidaDto {
 
 
+<<<<<<< HEAD
+    private int id;
+=======
     private Long id;
+>>>>>>> 92093fc39a9bbcb867172bc39066b8c8b613ec65
 
 
     private Paciente paciente;
@@ -27,18 +31,30 @@ public class TurnoSalidaDto {
     public TurnoSalidaDto() {
     }
 
+<<<<<<< HEAD
+    public TurnoSalidaDto(int id, Paciente paciente, Odontologo odontologo, LocalDateTime fechaYHora) {
+=======
     public TurnoSalidaDto(Long id, Paciente paciente, Odontologo odontologo, LocalDateTime fechaYHora) {
         this.id = id;
+>>>>>>> 92093fc39a9bbcb867172bc39066b8c8b613ec65
         this.paciente = paciente;
         this.odontologo = odontologo;
         this.fechaYHora = fechaYHora;
     }
 
+<<<<<<< HEAD
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+=======
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
+>>>>>>> 92093fc39a9bbcb867172bc39066b8c8b613ec65
         this.id = id;
     }
 
@@ -67,7 +83,11 @@ public class TurnoSalidaDto {
     }
     @Override
     public String toString(){
+<<<<<<< HEAD
+        return ("\n Turno id :" + this.getId() + " \n Pacientes: " + this.getPaciente() + " \n Odontologo :" + this.getOdontologo() + " \n Fecha y Hora: " + this.getFechaYHora());
+=======
         return ("\n Turno id :" + this.getId() + " \n Pacientes: " + this.getPaciente() + " \n Odontologo :" + this.getOdontologo());
+>>>>>>> 92093fc39a9bbcb867172bc39066b8c8b613ec65
     }
 }
 
